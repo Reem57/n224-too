@@ -1,7 +1,7 @@
 # n224-too
 
 ## Table of Contents
-- [Credits](https://github.com/nicm2)
+- [Credits]()
 - [Time Box]()
 
 ## Too Project Credits
