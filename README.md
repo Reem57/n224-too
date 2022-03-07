@@ -15,3 +15,7 @@ Name | Github Profile | Journal Links | Role | Commits |
 | Reem Ben Ishai | [@]() | [Journal]() | Technical Officer | [Commits]() |
 | Sanjay Bharadwaj | [@]() | [Journal]() | Github Admin | [Commits]() |
 | Isabelle Gunawan | [@]() | [Journal]() | Design Manager | [Commits]() |
+
+## Time Box
+
+### Week 1
