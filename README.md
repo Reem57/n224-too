@@ -2,7 +2,7 @@
 
 ## Table of Contents
 - [Credits]()
-- [Time Box]()
+- [Time Box](https://github.com/Reem57/n224-too/blob/main/README.md#time-box)
 
 ## Too Project Credits
 
