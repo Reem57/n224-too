@@ -6,7 +6,8 @@
 
 ## Too Project Credits
 
-|[Too Scrum Board](https://github.com/Reem57/n224-too/projects/1)|[Insight Graphs](https://github.com/Reem57/n224-too/graphs/contributors)|[Runtime Link]()|
+|[Too Scrum Board](https://github.com/Reem57/n224-too/projects/1)|[Insight Graphs](https://github.com/Reem57/n224-too/graphs/contributors)|[Runtime Link]()| 
+| :---   | :--- | :---|
 
 Name | Github Profile | Journal Links | Role | Commits |
 | :---- | :---- | :---- | :---- | :---- 
