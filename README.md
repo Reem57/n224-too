@@ -18,4 +18,4 @@ Name | Github Profile | Journal Links | Role | Commits |
 
 ## Time Box
 
-### Week 1
+### Week 0
