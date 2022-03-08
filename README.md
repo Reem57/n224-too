@@ -12,7 +12,7 @@
 Name | Github Profile | Journal Links | Role | Commits |
 | :---- | :---- | :---- | :---- | :---- 
 | Nicolas Mounier | [@nicm2](https://github.com/nicm2) | [ Journal]() | Scrum Master | [Commits]() |
-| Reem Ben Ishai | [@]() | [Journal]() | Technical Officer | [Commits]() |
+| Reem Ben Ishai | [@](https://github.com/Reem57) | [Journal]() | Technical Officer | [Commits]() |
 | Sanjay Bharadwaj | [@]() | [Journal]() | Github Admin | [Commits]() |
 | Isabelle Gunawan | [@]() | [Journal]() | Design Manager | [Commits]() |
 
