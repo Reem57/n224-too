@@ -20,12 +20,12 @@ Name | Github Profile | Journal Links | Role | Commits |
 
 ### Week 0
 
-Tasks | Evidence | Links |
-| :---- | :---- | :---- |
-| Web Project: Project Description, Project Plans/Ideas/Wires, Time box | |
-| Team Roles described, Project Owner or Sponsor described, Scrum Board started | |
-| GitHub page for Test Prep study, requiring 5.1 to 5.6 notes and actions | | 
-| GitHub page that documents Data Structures project, using code snippets for key learnings, and links to  GitHub for code and Replit for runtime | | 
-| GitHub page that documents intended Create Task project for College Board, snippets, and links to Runtime | |
+Tasks | Evidence |
+| :---- | :---- | 
+| Web Project: Project Description, Project Plans/Ideas/Wires, Time box | 
+| Team Roles described, Project Owner or Sponsor described, Scrum Board started | 
+| GitHub page for Test Prep study, requiring 5.1 to 5.6 notes and actions | 
+| GitHub page that documents Data Structures project, using code snippets for key learnings, and links to  GitHub for code and Replit for runtime | 
+| GitHub page that documents intended Create Task project for College Board, snippets, and links to Runtime | 
 
 
