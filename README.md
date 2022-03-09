@@ -11,10 +11,10 @@
 
 Name | Github Profile | Journal Links | Role | Commits |
 | :---- | :---- | :---- | :---- | :---- 
-| Nicolas Mounier | [@nicm2](https://github.com/nicm2) | [ Journal]() | Scrum Master | [Commits]() |
-| Reem Ben Ishai | [@](https://github.com/Reem57) | [Journal]() | Technical Officer | [Commits]() |
-| Sanjay Bharadwaj | [@](https://github.com/SanjayB06) | [Journal]() | Github Admin | [Commits]() |
-| Isabelle Gunawan | [@](https://github.com/isabelle926) | [Journal]() | Design Manager | [Commits]() |
+| Nicolas Mounier | [@nicm2](https://github.com/nicm2) | [Individual Repo]() | Scrum Master | [Commits]() |
+| Reem Ben Ishai | [@](https://github.com/Reem57) | [Individual Repo]() | Technical Officer | [Commits]() |
+| Sanjay Bharadwaj | [@](https://github.com/SanjayB06) | [Individual Repo]() | Github Admin | [Commits]() |
+| Isabelle Gunawan | [@](https://github.com/isabelle926) | [Individual Repo]() | Design Manager | [Commits]() |
 
 ## Time Box
 
