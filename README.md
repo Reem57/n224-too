@@ -9,7 +9,7 @@
 |[Too Scrum Board](https://github.com/Reem57/n224-too/projects/1)|[Insight Graphs](https://github.com/Reem57/n224-too/graphs/contributors)|[Runtime Link]()| 
 | :---   | :--- | :---|
 
-Name | Github Profile | Journal Links | Role | Commits |
+Name | Github Profile | Individual Repositories | Role | Commits |
 | :---- | :---- | :---- | :---- | :---- 
 | Nicolas Mounier | [@nicm2](https://github.com/nicm2) | [Individual Repo](https://github.com/nicm2/nic_repo) | Scrum Master | [Commits]() |
 | Reem Ben Ishai | [@reem57](https://github.com/Reem57) | [Individual Repo](https://github.com/Reem57/Trimester-3-CSP) | Technical Officer | [Commits]() |
