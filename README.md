@@ -16,6 +16,13 @@ Name | Github Profile | Individual Repositories | Role | Commits |
 | Sanjay Bharadwaj | [@sanjayb06](https://github.com/SanjayB06) | [Individual Repo](https://github.com/SanjayB06/csptri3) | Github Admin | [Commits]() |
 | Isabelle Gunawan | [@isabelle926](https://github.com/isabelle926) | [Individual Repo](https://github.com/isabelle926/isabelle_csptri3_individual) | Design Manager | [Commits]() |
 
+## Policies
+
+### Web Project
+- Project Description:
+- Project Plans:
+- Project Sponsor:
+
 ## Time Box
 
 ### Week 0
