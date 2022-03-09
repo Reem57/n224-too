@@ -11,10 +11,10 @@
 
 Name | Github Profile | Journal Links | Role | Commits |
 | :---- | :---- | :---- | :---- | :---- 
-| Nicolas Mounier | [@nicm2](https://github.com/nicm2) | [Individual Repo]() | Scrum Master | [Commits]() |
-| Reem Ben Ishai | [@](https://github.com/Reem57) | [Individual Repo]() | Technical Officer | [Commits]() |
-| Sanjay Bharadwaj | [@](https://github.com/SanjayB06) | [Individual Repo]() | Github Admin | [Commits]() |
-| Isabelle Gunawan | [@](https://github.com/isabelle926) | [Individual Repo]() | Design Manager | [Commits]() |
+| Nicolas Mounier | [@nicm2](https://github.com/nicm2) | [Individual Repo](https://github.com/nicm2/nic_repo) | Scrum Master | [Commits]() |
+| Reem Ben Ishai | [@reem57](https://github.com/Reem57) | [Individual Repo](https://github.com/Reem57/Trimester-3-CSP) | Technical Officer | [Commits]() |
+| Sanjay Bharadwaj | [@sanjayb06](https://github.com/SanjayB06) | [Individual Repo](https://github.com/SanjayB06/csptri3) | Github Admin | [Commits]() |
+| Isabelle Gunawan | [@isabelle926](https://github.com/isabelle926) | [Individual Repo]() | Design Manager | [Commits]() |
 
 ## Time Box
 
