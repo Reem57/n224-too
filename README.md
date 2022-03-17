@@ -1,8 +1,9 @@
 # n224-too
 
 ## Table of Contents
-- [Credits](https://github.com/Reem57/n224-too/blob/main/README.md#too-project-credits)
-- [Time Box](https://github.com/Reem57/n224-too/blob/main/README.md#time-box)
+- [Credits](#too-project-credits)
+- [Time Box](#time-box)
+- [Project](#policies)
 
 ## Too Project Credits
 
