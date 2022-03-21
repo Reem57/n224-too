@@ -1,3 +1,5 @@
+{% include nav.html %}
+
 # About Us (Team too)
 
 - Devoted Computer Science Students working to create a tutoring website 
