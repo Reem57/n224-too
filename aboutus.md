@@ -11,7 +11,8 @@
 -
 
 3. Sanjay Bharadwaj - Github Admin:
--
+- Hi, I'm Sanjay. I'm a sophomore at Del Norte High School. I like Computer Science and hope to pursue this in the future. In my free time I like playing tennis, reading, and watching movies.
+- previous projects: [Tri 1](https://github.com/SanjayB06/flask_portfolio) [Tri 2](https://github.com/SimonBrunzell/flask_portfolio)
 
 4. Isabelle Gunawan - Design Manager:
 -
