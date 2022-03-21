@@ -3,15 +3,16 @@
 - Devoted Computer Science Students working to create a tutoring website 
 
 Nicolas Mounier - Scrum Master:
-
-
+- Hi, my name is Nicolas. I am currently a sophmore at Del Norte Highschool. I played soccer for the JV team and am currently playing club. I enjoy hanging out with friends and playing games in my free time. I have a twin sister too and also like to travel and vist new places.
+- Previous Projects: [Tri2 Runtime](www.delp.rocks), [Tri1 Github](https://github.com/JasonO12/JSPN-project) 
 Reem Ben Ishai - Technical Officer:
-
+-
 
 Sanjay Bharadwaj - Github Admin:
-
+-
 
 Isabelle Gunawan - Design Manager:
+-
 
 Name | Github Profile | Individual Repositories | Role | Commits |
 | :---- | :---- | :---- | :---- | :---- 
