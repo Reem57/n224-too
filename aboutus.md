@@ -7,12 +7,14 @@
 1. Nicolas Mounier - Scrum Master:
 - Hi, my name is Nicolas. I am currently a sophmore at Del Norte Highschool. I played soccer for the JV team and am currently playing club. I enjoy hanging out with friends and playing games in my free time. I have a twin sister too and also like to travel and vist new places.
 - Previous Projects: [Tri2 Runtime](www.delp.rocks), [Tri1 Github](https://github.com/JasonO12/JSPN-project) 
+
 2. Reem Ben Ishai - Technical Officer:
--
+- Hi, my name is Reem. I am a sophomore at Del Norte High Schoo. I currently play soccer for a club called Force FC. I have a little brother and a an older sister. I love hanging out with friends, giving back to the community, and code. 
+- Previous Projects: [Tri 1](https://github.com/lleosunn/flask_portfolio), [Tri 2](https://github.com/jar04/flask_portfolio)
 
 3. Sanjay Bharadwaj - Github Admin:
 - Hi, I'm Sanjay. I'm a sophomore at Del Norte High School. I like Computer Science and hope to pursue this in the future. In my free time I like playing tennis, reading, and watching movies.
-- previous projects: [Tri 1](https://github.com/SanjayB06/flask_portfolio) [Tri 2](https://github.com/SimonBrunzell/flask_portfolio)
+- Previous Projects: [Tri 1](https://github.com/SanjayB06/flask_portfolio), [Tri 2](https://github.com/SimonBrunzell/flask_portfolio)
 
 4. Isabelle Gunawan - Design Manager:
 -
