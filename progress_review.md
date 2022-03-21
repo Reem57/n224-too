@@ -1,3 +1,5 @@
+{% include nav.html %}
+
 # Feature Progress and Review
 
 ## Scrum Board
