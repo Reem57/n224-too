@@ -1,3 +1,5 @@
+{% include nav.html %}
+
 # Technical Plan
 
 ## Key Systems
