@@ -21,7 +21,7 @@ Name | Github Profile | Individual Repositories | Role | Commits |
 ### Web Project
 - Project Description: Our PBL website is directed toward students in high-school and provides a one stop shop for resources, cheat-sheets, any tools for a variety of academic subjects and classes. We want to enhance student learning by providing ways to study for tests and better your knowledge of certain subjects. 
 - Project Plans: [Wireframes](), we plan to have seperate pages for each subject that incorpoates useful tools such as Google translate, calculators, and APIs to important information. 
-- Project Sponsor: Our project sponsor is the cyberborn club and we were instructed to work on a tutoring site focused on math and other subjects. The club wants resources that can help students study and resources like calendars, notes, and forum pages.
+- Project Sponsor: Our project sponsor is the cyberborn club and we were instructed to work on a tutoring site focused on math and other subjects. The club wants resources that can help students study and resources like calendars, notes, and forum pages. The website will be able to be used by the cyberborn club as I teaching and studying tool.
 
 ## Time Box
 
