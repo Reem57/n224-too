@@ -7,7 +7,7 @@
 - Firebase/other Databases
 - Raspberry Pi (Hosting)
 - MIT License
-- PII Concerns: Forum page in project could leak personal information and login/register information could also be compromised
+- PII Concerns: Forum page in project could leak personal information. Ways to prevent PII concerns is a login page which requires users to login before they access resources like notes so they are the only ones to see the information.
 
 ## Flow Charts
 
