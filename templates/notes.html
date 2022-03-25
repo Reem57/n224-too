@@ -1,0 +1,66 @@
+{% extends "layouts/base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 70%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+{% block body %}
+<script>
+    if ( window.history.replaceState ) {
+      window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+<style>
+    .notes {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 15px;
+    }
+    .note {
+        background-color: #fdfd96;
+        color: black;
+        padding: 1.5em;
+    }
+    #dbForm {
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+    }
+    #dbForm input[type="text"] {
+        padding: 1em;
+        border: none;
+        outline: none;
+        margin: 10px 0;
+    }
+</style>
+<div class="container">
+    <div class="notes">
+        {% for note in data %}
+            <div class="note">
+                <h3>Subject: {{ data[note][0]}}</h3>
+                <h5>Unit: {{ data[note][1]}}</h5>
+                <p>{{ data[note][3]}}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <form action="/notes/" id = "dbForm" method="POST">
+        <input type="text" name="subject" id="subject" placeholder="What subject is this for?" autocomplete="off" required>
+        <input type="text" name="unit" id="unit" placeholder="What unit is this for?" autocomplete="off" required>
+        <input type="text" name="ap" id="ap" placeholder="Is this an AP Class?" autocomplete="off" required>
+        <input type="text" name="note" id="note" placeholder="What do you want to note down?" autocomplete="off" required>
+        <input type="submit" value="Add Note">
+    </form>
+</div>
+{% endblock %}
+{% block background %}
+{% endblock %}
+</html>
