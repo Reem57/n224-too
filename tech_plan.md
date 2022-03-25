@@ -6,6 +6,8 @@
 - Rapid API
 - Firebase/other Databases
 - Raspberry Pi (Hosting)
+- MIT License
+- PII Concerns: Forum page in project could leak personal information and login/register information could also be compromised
 
 ## Flow Charts
 
