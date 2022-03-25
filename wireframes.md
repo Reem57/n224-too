@@ -5,7 +5,7 @@
 ## Key Features
 
 - [PBL Features on Scrum Board]()
-- Ex: login/register page, forum page, calculators, worksheets, rating system, homepage, sponsor page, notes, calendars
+- Ex: login/register page, forum page (crowdsourcing element), calculators, worksheets, rating system, homepage, sponsor page, notes, calendars
 - Database, API 
 
 ## Wireframes
