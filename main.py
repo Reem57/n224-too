@@ -31,9 +31,9 @@ def hawkers():
 #test
 
 
-@app.route('/stub/')
-def stub():
-    return render_template("stub.html")
+# @app.route('/stub/')
+# def stub():
+#     return render_template("stub.html")
 
 @app.route('/simple_calc/')
 def stub():
