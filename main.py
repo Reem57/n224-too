@@ -2,6 +2,8 @@
 from flask import Flask, render_template
 import requests
 from userNotes import userNotes
+from crud.model import Users
+from crud.app_crud import app_crud
 
 # create a Flask instance
 app = Flask(__name__)
