@@ -2,13 +2,13 @@
 from flask import Flask, render_template
 import requests
 from userNotes import userNotes
-from crud.model import Users
-from crud.app_crud import app_crud
+from cruddy.app_crud import app_crud
+from cruddy.app_crud_api import app_crud_api
 
 # create a Flask instance
 app = Flask(__name__)
 
-app.register_blueprint(app_api)
+app.register_blueprint(app_crud_api)
 app.register_blueprint(app_crud)
 
 app.register_blueprint(userNotes)
