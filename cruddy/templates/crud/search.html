@@ -5,11 +5,11 @@ inspiration from https://www.youtube.com/watch?v=QKcVjdLEX_s
 {% extends "layout.html" %}
 
 {% block meta %}
-<title>SQL search</title>
+    <title>Search</title>
 {% endblock %}
 
 {% block content %}
-    <div class="container py-4 bg-primary">
+    <div class="container py-4 bg-dark">
         <!-- heading -->
         <header class="pb-3 mb-4 border-bottom">
             <a href="#" class="d-flex align-items-center text-light text-decoration-none">
@@ -25,7 +25,7 @@ inspiration from https://www.youtube.com/watch?v=QKcVjdLEX_s
                             <input type="text" class="form-control" id="term" placeholder="enter search term">
                             <label></label> <!-- used for spacer -->
                         </div>
-                        <button class="btn btn-primary bg-secondary" onclick="search_data();">Search</button>
+                        <button class="btn btn-primary bg-primary" onclick="search_data();">Search</button>
                     </div>
                 </div>
             </div>
@@ -55,33 +55,33 @@ inspiration from https://www.youtube.com/watch?v=QKcVjdLEX_s
                     "content-type": "application/json"
                 })
             })
-            // async then replies with response header
-            .then(function (response) {
-                // prepare HTML search result container for new output
-                const resultContainer = document.getElementById("result");
-                // clean up from previous search
-                while (resultContainer.firstChild) {
-                    resultContainer.removeChild(resultContainer.firstChild);
-                }
-                // trap error response from Web API
-                if (response.status !== 200) {
-                    const errorMsg = 'Database response error: ' + response.status;
-                    console.log(errorMsg);
-                    const div = document.createElement("div");
-                    div.innerHTML = errorMsg;
-                    resultContainer.appendChild(div);
-                    return;
-                }
-                // response contains valid result
-                response.json().then(function(data) {
-                    // loop through JSON and build HTML output
-                    for (let i = 0; i < data.length; i++) {
-                        const div = document.createElement("div");
-                        div.innerHTML = data[i].name + ' ' + data[i].email;
-                        resultContainer.appendChild(div);
+                // async then replies with response header
+                .then(function (response) {
+                    // prepare HTML search result container for new output
+                    const resultContainer = document.getElementById("result");
+                    // clean up from previous search
+                    while (resultContainer.firstChild) {
+                        resultContainer.removeChild(resultContainer.firstChild);
                     }
+                    // trap error response from Web API
+                    if (response.status !== 200) {
+                        const errorMsg = 'Database response error: ' + response.status;
+                        console.log(errorMsg);
+                        const div = document.createElement("div");
+                        div.innerHTML = errorMsg;
+                        resultContainer.appendChild(div);
+                        return;
+                    }
+                    // response contains valid result
+                    response.json().then(function(data) {
+                        // loop through JSON and build HTML output
+                        for (let i = 0; i < data.length; i++) {
+                            const div = document.createElement("div");
+                            div.innerHTML = data[i].name + ' ' + data[i].email;
+                            resultContainer.appendChild(div);
+                        }
+                    })
                 })
-            })
         }
     </script>
 {% endblock %}

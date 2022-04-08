@@ -12,16 +12,16 @@
 
 <!-- CONTENT (in <body>), content for this page -->
 {% block content %}
-    <div class="container py-4">
-        <header class="pb-3 mb-4 border-bottom border-primary text-dark">
-            <span class="fs-4">SQL CRUD Admin Page</span>
+    <div class="container py-4 text-dark bg-dark">
+        <header class="pb-3 mb-4 border-bottom">
+            <div class="d-flex align-items-center text-light text-decoration-none">
+                <span class="fs-4">CRUD Database Operation</span>
+            </div>
         </header>
-    </div>
-    <div class="container py-4 text-light bg-success">
 
-        <div class="container bg-secondary py-4">
-            <div class="p-5 mb-4 bg-light text-dark rounded-3">
-                <h2>Table Viewer</h2>
+        <div class="container py-4">
+            <div class="p-5 mb-4 bg-info text-dark rounded-3">
+                <h2>Backpack Pro Database Viewer</h2>
                 <div class="row align-items-md-stretch">
                     <table class="table">
                         <tbody>
@@ -29,7 +29,7 @@
                             <td></td>
                             <td></td>
                             <td><a href={{url_for('crud.crud')}}>Full Table </a></td>
-                            <td><a href="https://github.com/nighthawkcoders/nighthawk_csp/tree/master/crud">GitHub Source</a></td>
+                            <td><a href="https://github.com/JakubPonulak/5_hackers/tree/main/crud">GitHub Source</a></td>
                         </tr>
                         </tbody>
                     </table>
@@ -59,7 +59,7 @@
                                     <td>{{ row['userID'] }}</td>
                                     <td>{{ row['name'] }}</td>
                                     <td>{{ row['email'] }}</td>
-                                    <td>{{ row['password'] | truncate(20) }}</td>
+                                    <td>{{ row['password'] }}</td>
                                     <td>{{ pnf }}</td>
                                 </tr>
                             {% endfor %}
@@ -72,8 +72,8 @@
         </div>
 
 
-        <div class="container bg-secondary py-4">
-            <div class="p-5 mb-4 bg-light text-dark rounded-3">
+        <div class="container py-4">
+            <div class="p-5 mb-4 bg-info text-dark rounded-3">
                 <h2>Create a new record</h2>
                 <form method="POST" ID="create" action={{url_for('crud.create')}} >
                     <table class="table">
@@ -101,12 +101,12 @@
 
         </div>
 
-        <div class="container bg-secondary py-4">
+        <div class="container py-4">
 
-            <div class="row mb-4 bg-light text-dark rounded-3">
+            <div class="row mb-4 bg-info text-dark rounded-3">
 
                 <div class="col-md-3">
-                    <div class="p-5 mb-4 bg-light text-dark rounded-3">
+                    <div class="p-5 mb-4 bg-info text-dark rounded-3">
                         <h2>Read</h2>
                         <form method="POST" ID="read" action={{url_for('crud.read')}} >
                             <table id="read_table">
@@ -131,7 +131,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    <div class="p-5 mb-4 bg-light text-dark rounded-3">
+                    <div class="p-5 mb-4 bg-info text-dark rounded-3">
                         <h2>Update</h2>
                         <form method="POST" ID="update" action={{url_for('crud.update')}} >
                             <table id="update_table">
@@ -158,7 +158,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <div class="p-5 mb-4 bg-light text-dark rounded-3">
+                    <div class="p-5 mb-4 bg-info text-dark rounded-3">
                         <h2>Delete</h2>
                         <form method="POST" ID="read" action={{url_for('crud.delete')}} >
                             <table id="read_table">
@@ -185,23 +185,4 @@
         </div>
 
     </div>
-
-    <!-- Back end SQL data definition code (SQLalchemy) -->
-    <div class="container py-4">
-        <h1 id="BE-MODEL">Back End Definition Code (Model) </h1>
-        <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csp%2Fblob%2Fmaster%2Fcrud%2Fmodel.py&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
-    </div>
-
-    <!-- Front End HTML, shows this file -->
-    <div class="container py-4">
-        <h1 id="FE-VIEW">Front End HTML Code (View) </h1>
-        <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csp%2Fblob%2Fmaster%2Fcrud%2Ftemplates%2Fcrud%2Fcrud.html&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
-    </div>
-
-    <!-- Back Route code -->
-    <div class="container py-4">
-        <h1 id="BE-CONTROL">Back End Form Request and API Code (Control)</h1>
-        <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fnighthawkcoders%2Fnighthawk_csp%2Fblob%2Fmaster%2Fcrud%2Fapp_crud.py&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
-    </div>
-
 {% endblock %}
