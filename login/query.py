@@ -3,7 +3,7 @@
 from __init__ import login_manager, db
 from cruddy.model import Users
 from flask_login import current_user, login_user, logout_user
-
+from cruddy.sql import *
 # this function is needed for Flask-Login to work.
 # User_loader callback. This callback is used to reload the user object from the user ID stored in the session.   
 # It should take the str ID of a user, and return the corresponding user object.  
