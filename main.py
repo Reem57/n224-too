@@ -6,9 +6,9 @@ from cruddy.model import Users
 from cruddy.app_crud import app_crud
 from cruddy.app_crud import app_crud
 from cruddy.app_crud_api import app_crud_api
-
+from __init__ import app
 # create a Flask instance
-app = Flask(__name__)
+#app = Flask(__name__)
 
 app.register_blueprint(app_crud_api)
 app.register_blueprint(app_crud)
