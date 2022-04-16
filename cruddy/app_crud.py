@@ -1,8 +1,8 @@
 """control dependencies to support CRUD app routes and APIs"""
 from flask import Blueprint, render_template, request, url_for, redirect, jsonify, make_response
-from flask_login import login_required
+from flask_login import login_required, logout_user
 
-from login.query import *
+from cruddy.query import *
 
 # blueprint defaults https://flask.palletsprojects.com/en/2.0.x/api/#blueprint-objects
 app_crud = Blueprint('crud', __name__,
@@ -20,7 +20,7 @@ app_crud = Blueprint('crud', __name__,
 
 # Default URL for Blueprint
 @app_crud.route('/')
-@login_required  # Flask-Login uses this decorator to restrict acess to logged in users
+@login_required  # Flask-Login uses this decorator to restrict access to logged in users
 def crud():
     """obtains all Users from table and loads Admin Form"""
     return render_template("crud.html", table=users_all())
@@ -55,11 +55,18 @@ def crud_authorize():
         user_name = request.form.get("user_name")
         email = request.form.get("email")
         password1 = request.form.get("password1")
-        password2 = request.form.get("password1")           # password should be verified
-        if authorize(user_name, email, password1):    # zero index [0] used as user_name and email are type tuple
+        password2 = request.form.get("password1")
+        phone = request.form.get("phone")                    # password should be verified
+        if authorize(user_name, email, password1, phone):    # zero index [0] used as user_name and email are type tuple
             return redirect(url_for('crud.crud_login'))
     # show the auth user page if the above fails for some reason
     return render_template("authorize.html")
+
+
+@app_crud.route('/logout/', methods=["GET", "POST"])
+def crud_logout():
+    logout_user()
+    return render_template("main_page.html")
 
 
 # CRUD create/add
@@ -117,6 +124,7 @@ def delete():
 
 # Search Form
 @app_crud.route('/search/')
+@login_required
 def search():
     """loads form to search Users data"""
     return render_template("search.html")
