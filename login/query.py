@@ -15,6 +15,13 @@ def model_user_loader(user_id):
         return Users.query.get(user_id)
     return None
 
+# check credentials in database
+def is_user(email, password):
+    # query email and return user record
+    user_record = user_by_email(email)
+    # if user record found, check if password is correct
+    return user_record and Users.is_password_match(user_record, password)
+
 # login user based off of email and password
 def login(email, password):
     # sequence of checks
