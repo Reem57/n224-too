@@ -8,6 +8,12 @@ from cruddy.sql import *
 # User_loader callback. This callback is used to reload the user object from the user ID stored in the session.   
 # It should take the str ID of a user, and return the corresponding user object.  
 # It should return None (not raise an exception) if the ID is not valid.  
+def is_user(email, password):
+    # query email and return user record
+    user_record = user_by_email(email)
+    # if user record found, check if password is correct
+    return user_record and Users.is_password_match(user_record, password)
+
 @login_manager.user_loader
 def model_user_loader(user_id):
     """Check if user is logged-in on every page load."""
