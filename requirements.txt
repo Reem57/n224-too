@@ -1,13 +1,2 @@
-flask==2.0.2
-requests==2.27.1
-SQLAlchemy==1.4.29
-Werkzeug==2.0.2
-flask_login
-flask_sqlalchemy
-flask_migrate
-flask_restful
-numpy
-Pillow==9.0.0
-django-os-geocoder~=0.1.6
-algorithm~=1.2.0
-firebase_admin
+Flask
+requests
