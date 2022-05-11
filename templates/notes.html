@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/561a0d84b8.js" crossorigin="anonymous"></script>
     <title>Document</title>
     <style>
         .container {
@@ -30,7 +29,6 @@
         background-color: #fdfd96;
         color: black;
         padding: 1.5em;
-        position: relative
     }
     #dbForm {
         width: 35%;
@@ -45,13 +43,11 @@
     }
 </style>
 <div class="container">
-    <i class="fa-solid fa-trash-can"></i>
     <div class="notes">
         {% for note in data %}
             <div class="note">
                 <h3>Subject: {{ data[note][0]}}</h3>
                 <h5>Unit: {{ data[note][1]}}</h5>
-                <p id="noteId" style="display:none">{{note}}</p>
                 <p>{{ data[note][3]}}</p>
             </div>
         {% endfor %}
