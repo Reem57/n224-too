@@ -27,7 +27,7 @@ def register():
 
 @app.route('/login/')
 def login():
-    return render_template("login_page/login.html")
+    return render_template("login.html")
 
  
 # runs the application on the development server

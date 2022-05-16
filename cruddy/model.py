@@ -1,11 +1,10 @@
-""" database dependencies to support Users db examples """
-from __init__ import db
+from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import IntegrityError
-from werkzeug.security import generate_password_hash, check_password_hash
+from flask_migrate import Migrate
 from flask_login import UserMixin
+from werkzeug.security import generate_password_hash, check_password_hash
 
-
-# Tutorial: https://www.sqlalchemy.org/library.html#tutorials, try to get into Python shell and follow along
+import db from __init__
 
 # Define the Users table within the model
 # -- Object Relational Mapping (ORM) is the key concept of SQLAlchemy
@@ -47,8 +46,7 @@ class Users(UserMixin, db.Model):
             "name": self.name,
             "email": self.email,
             "password": self.password,
-            "phone": self.phone,
-            "query": "by_alc"  # This is for fun, a little watermark
+            "phone": self.phone
         }
 
     # CRUD update: updates users name, password, phone
@@ -58,7 +56,7 @@ class Users(UserMixin, db.Model):
         if len(name) > 0:
             self.name = name
         if len(password) > 0:
-            self.set_password(password)
+            self.password = password
         if len(phone) > 0:
             self.phone = phone
         db.session.commit()
@@ -70,8 +68,13 @@ class Users(UserMixin, db.Model):
         db.session.delete(self)
         db.session.commit()
         return None
+    # required for login_user, overrides id (login_user default) to implemented userID
+    # The method get_id() must return a str that uniquely identifies this user, and can be used to load the user
+    # from the user_loader callback.
 
-    # set password method is used to create encrypted password
+    def get_id(self):
+        return self.userID
+
     def set_password(self, password):
         """Create hashed password."""
         self.password = generate_password_hash(password, method='sha256')
@@ -82,12 +85,6 @@ class Users(UserMixin, db.Model):
         result = check_password_hash(self.password, password)
         return result
 
-    # required for login_user, overrides id (login_user default) to implemented userID
-    def get_id(self):
-        return self.userID
-
-
-"""Database Creation and Testing section"""
 
 
 def model_tester():
@@ -122,6 +119,13 @@ def model_printer():
     print(result.keys())
     for row in result:
         print(row)
+
+# The class that you use to represent users needs to implement these properties and methods:
+# is_authenticated, is_active, is_anonymous, get_id()
+# To make implementing a user class easier, you can inherit from UserMixin, which provides default implementations
+# for all of these properties and methods.
+
+# Users DB is a collection Data Structure
 
 
 if __name__ == "__main__":

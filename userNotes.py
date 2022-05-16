@@ -17,7 +17,7 @@ def notes():
         conn.commit()
         conn.close()
         print([subject,unit,ap,note])
-    response = requests.get('http://127.0.0.1:5000/getNotes/').json()
+    response = requests.get('http://127.0.0.1:8080/getNotes/').json()
     return render_template("notes.html",data =response)
 
 @userNotes.route("/getNotes/")
