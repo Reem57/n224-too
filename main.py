@@ -2,20 +2,22 @@
 from flask import Flask, render_template
 import requests
 from userNotes import userNotes
-
+from questions import questions
 # create a Flask instance
 app = Flask(__name__)
 
 app.register_blueprint(userNotes)
+app.register_blueprint(questions)
 # connects default URL to render index.html
 @app.route('/')
 def index():
     return render_template("index.html")
 
 
-# @app.route('/stub/')
-# def stub():
-#     return render_template("stub.html")
+@app.route('/stub/')
+def stub():
+    return render_template("stub.html")
+
 
 @app.route('/simple_calc/')
 def simple_calc():
@@ -23,6 +25,5 @@ def simple_calc():
 
  
 # runs the application on the development server
-if __name__ == '__main__':
-    app.debug = True
-    app.run(host="0.0.0.0",port=8080)
+if __name__ == "__main__":
+    app.run(debug=True)

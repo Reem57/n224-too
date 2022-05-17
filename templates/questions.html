@@ -1,0 +1,69 @@
+{% extends "layouts/base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Questions</title>
+</head>
+{% block body %}
+<script>
+    if ( window.history.replaceState ) {
+      window.history.replaceState( null, null, window.location.href );
+    }
+    function search() {
+        term = document.getElementById("term").value
+        fetch('http://127.0.0.1:5000/getQuestions/?term='+term) 
+            .then(response=> {
+                return response.json();
+            })
+            .then(questions=> {
+                for (var x in questions) {
+                    console.log(questions[x])
+                }
+            })
+        
+     
+    }
+</script>
+<style>
+    #dbForm {
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+    }
+    #dbForm input[type="text"] {
+        padding: 1em;
+        border: none;
+        outline: none;
+        margin: 10px 0;
+    }
+</style>
+<div class="search-container">
+    <form action="/questions/" id='search' method="POST">
+        <input type="hidden" value="search" name="formID">
+        <input type="text" id="term" name="term" placeholder="Enter a search term:">
+        <input type="submit">
+    </form>
+</div>
+{% for x in questions %}
+    <div class="question">
+        <p>{{questions[x][0]}}</p>
+        <p>{{questions[x][1]}}</p>
+        <p>{{questions[x][2]}}</p>
+        <p>{{questions[x][3]}}</p>
+    </div>
+{% endfor %}
+<div id="add" class="container">
+    <form action="/questions/" method="POST" id="dbForm">
+        <input type="hidden" value="add" name="formID">
+        <input type="text" name="subject" id="subject" placeholder="What subject is this for?" autocomplete="off" required>
+        <input type="text" name="subcat" id="subcat" placeholder="What is the subcategory?" autocomplete="off">
+        <input type="text" name="question" id="question" placeholder="What is your question?" autocomplete="off" required>
+        <input type="text" name="note" id="note" placeholder="Any other notes/background..." autocomplete="off">
+        <input type="submit" value="Add Note">
+    </form>
+</div>
+{% endblock %}
+</html>
