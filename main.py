@@ -23,7 +23,10 @@ def stub():
 def simple_calc():
     return render_template("simple_calc.html")
 
- 
+@app.route('/stoich_calc/')
+def stoich_calc():
+    return render_template("stoich_calc.html")
+
 # runs the application on the development server
 if __name__ == "__main__":
     app.run(debug=True)
