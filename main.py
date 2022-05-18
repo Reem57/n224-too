@@ -27,6 +27,10 @@ def simple_calc():
 def stoich_calc():
     return render_template("stoich_calc.html")
 
+@app.route('/graph_calc/')
+def graph_calc():
+    return render_template("graph_calc.html")
+
 @app.route('/pixel_art/')
 def pixel_art():
     return render_template("pixel_art.html")
