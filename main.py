@@ -3,11 +3,13 @@ from flask import Flask, render_template
 import requests
 from userNotes import userNotes
 from questions import questions
+from answers import answers
 # create a Flask instance
 app = Flask(__name__)
 
 app.register_blueprint(userNotes)
 app.register_blueprint(questions)
+app.register_blueprint(answers)
 # connects default URL to render index.html
 @app.route('/')
 def index():
