@@ -1,5 +1,5 @@
 from __init__ import login_manager, db
-from cruddy.model import Users
+from model import Users
 from flask_login import current_user, login_user, logout_user
 
 

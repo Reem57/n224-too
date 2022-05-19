@@ -2,8 +2,8 @@
 import requests
 from __init__ import app
 from flask import Flask, request, Blueprint, render_template
-from cruddy.app_crud import app_crud
-from cruddy.app_crud_api import app_crud_api
+from templates.cruddy.app_crud import app_crud
+from templates.cruddy.app_crud_api import app_crud_api
 from userNotes import userNotes
 
 app.register_blueprint(app_crud)
@@ -26,7 +26,7 @@ def register():
 
 
 @app.route('/login/')
-def register():
+def login():
     return render_template("cruddy/templates/login.html")
 
  
