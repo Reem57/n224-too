@@ -35,6 +35,10 @@ def graph_calc():
 def pixel_art():
     return render_template("pixel_art.html")
 
+@app.route('/spell_checker/')
+def spell_checker():
+    return render_template("spell_checker.html")
+
 # runs the application on the development server
 if __name__ == "__main__":
     app.run(debug=True)
