@@ -1,13 +1,20 @@
-{% extends "layouts/base.html" %}
 <!DOCTYPE html>
+{% extends "layouts/base.html" %}
 <html lang="en">
+{% block body %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Member Questions</title>
+    <style>
+        body {
+            background-image: url("blue.jpg");
+            background-color: darkcyan;
+        }
+    </style>
+
 </head>
-{% block body %}
 <script>
     if ( window.history.replaceState ) {
       window.history.replaceState( null, null, window.location.href );
@@ -38,6 +45,14 @@
         border: none;
         outline: none;
         margin: 10px 0;
+    }
+    p {
+        border-color: white;
+        border-width: 100px;
+    }
+    .question {
+        border:  1px solid grey;
+        background-color: lightblue;
     }
 </style>
 <div class="search-container">
