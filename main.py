@@ -39,6 +39,10 @@ def pixel_art():
 def spell_checker():
     return render_template("spell_checker.html")
 
+@app.route('/calendar/')
+def calendar():
+    return render_template("calendar_stuff/calendar.html")
+
 # runs the application on the development server
 if __name__ == "__main__":
     app.run(debug=True)
