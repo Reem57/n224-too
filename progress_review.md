@@ -10,6 +10,11 @@
 
 ## Time Box
 
+### Finals Week 1
+Scrum Master Review: [ticket](https://github.com/Reem57/n224-too/issues/25)
+Individual Review: [Nicolas ticket](https://github.com/Reem57/n224-too/issues/29), [Reem ticket](https://github.com/Reem57/n224-too/issues/28), [Isabelle ticket](https://github.com/Reem57/n224-too/issues/27), [Sanjay ticket](https://github.com/Reem57/n224-too/issues/26)
+Sponsor Review: [ticket](https://github.com/Reem57/n224-too/issues/30)
+
 ### Week 0
 
 Tasks | Evidence |
