@@ -12,5 +12,12 @@
 <p>Subcategory: {{question[1]}}</p>
 <p>Question: {{question[2]}}</p>
 <p>Other comments: {{question[3]}}</p>
+<h3>Read Member Answers</h3>
+{% for x in answers %}
+<div class="answer">
+    <p>{{answers[x][1]}}</p>
+    <p>{{answers[x][2]}}</p>
+</div>
+{% endfor %}
 {% endblock %}
 </html>

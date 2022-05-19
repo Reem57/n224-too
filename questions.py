@@ -41,8 +41,10 @@ def question():
 @questions.route("/question/<int:questionID>")
 def questionPage(questionID):
     response = requests.get(f'http://127.0.0.1:5000/getQuestions?id={questionID}')
+    response2 = requests.get(f'http://127.0.0.1:5000/getAnswers?id={questionID}')
     response = response.json()
-    return render_template("questionPage.html", question = response[list(response.keys())[0]])
+    response2 = response2.json()
+    return render_template("questionPage.html", question = response[list(response.keys())[0]],answers = response2)
 @questions.route("/getQuestions/")
 def getQuestions():
     term = request.args.get("term")
