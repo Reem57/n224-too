@@ -38,12 +38,22 @@ def question():
             print(term)
             response = requests.get(f'http://127.0.0.1:5000/getQuestions?term={term}')
     return render_template("questions.html",questions=response.json())
+@questions.route("/question/<int:questionID>")
+def questionPage(questionID):
+    response = requests.get(f'http://127.0.0.1:5000/getQuestions?id={questionID}')
+    response = response.json()
+    return render_template("questionPage.html", question = response[list(response.keys())[0]])
 @questions.route("/getQuestions/")
 def getQuestions():
     term = request.args.get("term")
+    id = request.args.get("id")
     conn = sqlite3.connect("model/data.db")
     data = {}
-    if term:
+    if id:
+        cursor1 = conn.execute(f"SELECT * FROM QUESTIONS WHERE id={id}")
+        for row in cursor1:
+            data[row[0]] = list(row[1:])
+    elif term:
         cursor1 = conn.execute(f"SELECT * FROM QUESTIONS WHERE SUBJECT LIKE '%{term}%'")
         cursor2 = conn.execute(f"SELECT * FROM QUESTIONS WHERE SUBCAT LIKE '%{term}%'")
         cursor3 = conn.execute(f"SELECT * FROM QUESTIONS WHERE QUESTION LIKE '%{term}%'")

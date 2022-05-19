@@ -53,6 +53,7 @@
         <p>{{questions[x][1]}}</p>
         <p>{{questions[x][2]}}</p>
         <p>{{questions[x][3]}}</p>
+        <p><a href="{{ '/question/%s'%x|urlencode }}">Go to page</a></p>
     </div>
 {% endfor %}
 <div id="add" class="container">
