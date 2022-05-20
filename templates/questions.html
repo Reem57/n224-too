@@ -61,8 +61,27 @@
         margin-bottom: 20px;
         border-radius: 20px;
     }
-    .container {
+    .container{
+        width: 70%;
         margin: 0 auto;
+    }
+    .input_left {
+        padding-left: 250px;
+    }
+    .input_right {
+        padding-left: 40px;
+    }
+    .flex-container {
+        display: flex;
+        flex-direction: row;
+    }
+    .submit_button {
+        padding-left: 370px;
+        padding-bottom: 50px;
+    }
+    .search-container {
+        padding: 10px;
+        background-color: hotpink;
     }
 </style>
 <div class="search-container">
@@ -89,12 +108,20 @@
 {% endfor %}
 <div id="add" class="container">
     <form action="/questions/" method="POST" id="dbForm">
-        <input type="hidden" value="add" name="formID">
-        <input type="text" name="subject" id="subject" placeholder="What subject is this for?" autocomplete="off" required>
-        <input type="text" name="subcat" id="subcat" placeholder="What is the subcategory?" autocomplete="off">
-        <input type="text" name="question" id="question" placeholder="What is your question?" autocomplete="off" required>
-        <input type="text" name="note" id="note" placeholder="Any other notes/background..." autocomplete="off">
+        <div class ="flex-container">
+            <input type="hidden" value="add" name="formID">
+            <div class="input_right">
+                <input type="text" name="subject" id="subject" placeholder="What subject is this for?" autocomplete="off" required>
+                <input type="text" name="subcat" id="subcat" placeholder="What is the subcategory?" autocomplete="off">
+            </div>
+            <div class="input_left">
+                <input type="text" name="question" id="question" placeholder="What is your question?" autocomplete="off" required>
+                <input type="text" name="note" id="note" placeholder="Any other notes/background..." autocomplete="off">
+            </div>
+        </div>
+            <div class="submit_button">
         <input type="submit" value="Add Question">
+            </div>
     </form>
 </div>
 {% endblock %}
