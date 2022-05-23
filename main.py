@@ -8,8 +8,6 @@ app = Flask(__name__)
 
 app.register_blueprint(app_crud)
 app.register_blueprint(app_crud_api)
-app.register_blueprint(app_notes)
-
 
 
 @app.route('/')
