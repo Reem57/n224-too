@@ -2,8 +2,6 @@ from flask import Flask, render_template
 from __init__ import app
 from cruddy.app_crud import app_crud
 from cruddy.app_crud_api import app_crud_api
-from cruddy.app_notes import app_notes
-import markdown
 
 app = Flask(__name__)
 
