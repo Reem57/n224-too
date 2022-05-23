@@ -37,6 +37,12 @@ def question():
             term = request.form.get("term")
             print(term)
             response = requests.get(f'http://127.0.0.1:5000/getQuestions?term={term}')
+        if id=="delete":
+            conn = sqlite3.connect("model/data.db")
+            id = request.form.get("questionid")
+            conn.execute(f"DELETE FROM QUESTIONS WHERE id={id}")
+            print(id,"deletion form")
+            conn.commit()
     return render_template("questions.html",questions=response.json())
 @questions.route("/question/<int:questionID>")
 def questionPage(questionID):

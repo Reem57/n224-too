@@ -78,14 +78,19 @@
         <p>{{questions[x][1]}}</p>
         <p>{{questions[x][2]}}</p>
         <p>{{questions[x][3]}}</p>
-        <p><a href="{{ '/question/%s'%x|urlencode }}">Go to page</a></p>
+        <p><a href="{{ '/question/%s'%x|urlencode }}">See answers</a></p>
         <form action="/addanswer/" method="POST">
             <input type="hidden" value={{x}} name="QID" id="QID">
             <input type="text" name="AUTHOR" id="AUTHOR" placeholder="What name would you like to display (optional)" autocomplete="off">
             <input type="text" name="ANSWERTEXT" id="ANSWERTEXT" placeholder="Type your answer here..." required autocomplete="off">
             <input type="submit">
         </form>
-    </div>
+        <form action="/questions/" id='delete' method="POST">
+            <input type="hidden" value="delete" name="formID">
+            <input type="hidden" id="questionid" name="questionid" value={{x}}>
+            <input type="submit">
+        </form>
+        </div>
 {% endfor %}
 <div id="add" class="container">
     <form action="/questions/" method="POST" id="dbForm">

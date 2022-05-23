@@ -12,21 +12,41 @@
             background-image: url("blue.jpg");
             background-color: darkcyan;
         }
+        .container {
+            width: 70%;
+            margin: 0 auto;
+            padding: 20px
+        }
         p {
-            color: orange;
+            color: #236477
+        }
+        .question {
+            background-color: lightblue;
+            padding: 20px;
+            color: #236477;
+            text-align: center;
+        }
+        .answer {
+            background-color: lightblue;
+            padding: 20px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
-<p>Subject: {{question[0]}}</p>
-<p>Subcategory: {{question[1]}}</p>
-<p>Question: {{question[2]}}</p>
-<p>Other comments: {{question[3]}}</p>
-<h3>Read Member Answers</h3>
-{% for x in answers %}
-<div class="answer">
-    <p>{{answers[x][1]}}</p>
-    <p>{{answers[x][2]}}</p>
+<div class="container">
+    <div class="question">
+        <h3>{{question[2]}}</h3>
+        <h4>{{question[0]}}</h4>
+        <p>Subcategory: {{question[1]}}</p>
+        <p>{{question[3]}}</p>
+    </div>
+    <h3 style="margin: 20px 0">Read Member Answers:</h3>
+    {% for x in answers %}
+    <div class="answer">
+        <p>{{answers[x][1]}}</p>
+        <p>{{answers[x][2]}}</p>
+    </div>
+    {% endfor %}
 </div>
-{% endfor %}
 {% endblock %}
 </html>
