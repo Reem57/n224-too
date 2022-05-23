@@ -41,7 +41,6 @@ def question():
             conn = sqlite3.connect("model/data.db")
             id = request.form.get("questionid")
             conn.execute(f"DELETE FROM QUESTIONS WHERE id={id}")
-            print(id,"deletion form")
             conn.commit()
     return render_template("questions.html",questions=response.json())
 @questions.route("/question/<int:questionID>")
