@@ -49,7 +49,7 @@ def questionPage(questionID):
     response2 = requests.get(f'http://127.0.0.1:5000/getAnswers?id={questionID}')
     response = response.json()
     response2 = response2.json()
-    return render_template("questionPage.html", question = response[list(response.keys())[0]],answers = response2)
+    return render_template("questionPage.html", question = response[list(response.keys())[0]],answers = response2,questionID=questionID)
 @questions.route("/getQuestions/")
 def getQuestions():
     term = request.args.get("term")
