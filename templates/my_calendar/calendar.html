@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+{% extends "layouts/base.html" %}
+
+<head>
+    <title>Cool Calendar</title>
+    <meta charset="UTF-8" />
+</head>
+{% block body %}
+<body>
+<div id="app"></div>
+
+<script src="index.js">
+</script>
+</body>
+{% endblock %}
+</html>
+
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cool Calendar</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+</head>
+<body>
+    <h3> MY CALENDAR</h3>
+    <div id="calendar"></div>
+    <script>
+        let calendarEl = document.getElementById('calendar');
+
+        let calendar = new FullCalendar.Calendar(calendarEl, {
+            events: [
+                {% for event in events %}
+                {
+                    title : '{{event.todo}}',
+                    start : '{{event.date}}',
+                }
+                {% endfor %}
+            ]
+        });
+
+        calendar.render();
+    </script>
+
+<script src="index.js"></script>
+</body>
+</html>
+-->

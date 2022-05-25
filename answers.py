@@ -4,6 +4,7 @@ import json
 import requests
 # Table ANSWERS with ID, QID, AUTHOR, ANSWERTEXT
 answers = Blueprint("answers",__name__)
+
 @answers.route("/addanswer/",methods=["GET","POST"])
 def addanswer():
     response = requests.get("http://127.0.0.1:5000/getQuestions/")
