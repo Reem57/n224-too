@@ -65,30 +65,34 @@
         width: 70%;
         margin: 0 auto;
     }
-    .input_left {
-        padding-left: 250px;
+    form#dbForm {
+        width: 100%
     }
-    .input_right {
-        padding-left: 40px;
-    }
-    .flex-container {
+    .main-flex-container {
         display: flex;
-        flex-direction: row;
+        justify-content: space-between;
+        width: 100%
     }
-    .submit_button {
-        padding-left: 370px;
-        padding-bottom: 50px;
+    .inputcontainer {
+        display: block;
     }
-
+    .inputcontainer input[type="text"] {
+        width: 100%;
+    }
     .search-container {
         padding: 10px;
+    }
+    #mainsubmit {
+        padding: 1em;
+        width: 50%;
+        margin: 0 auto;
     }
 </style>
 <div class="search-container">
     <form action="/questions/" id='search' method="POST">
         <input type="hidden" value="search" name="formID">
-        <input type="text" id="term" name="term" placeholder="Enter a search term:">
-        <input type="submit">
+        <input style="padding: 1em 1.5em" type="text" id="term" name="term" placeholder="Enter a search term:">
+        <input type="submit" class="btn">
     </form>
 </div>
 {% for x in questions %}
@@ -102,31 +106,29 @@
             <input type="hidden" value={{x}} name="QID" id="QID">
             <input type="text" name="AUTHOR" id="AUTHOR" placeholder="What name would you like to display (optional)" autocomplete="off">
             <input type="text" name="ANSWERTEXT" id="ANSWERTEXT" placeholder="Type your answer here..." required autocomplete="off">
-            <input type="submit">
+            <input type="submit" class="btn">
         </form>
         <form action="/questions/" id='delete' method="POST">
             <input type="hidden" value="delete" name="formID">
             <input type="hidden" id="questionid" name="questionid" value={{x}}>
-            <input type="submit" value="Delete Question">
+            <input type="submit" value="Delete Question" class="btn">
         </form>
         </div>
 {% endfor %}
 <div id="add" class="container">
     <form action="/questions/" method="POST" id="dbForm">
-        <div class ="flex-container">
             <input type="hidden" value="add" name="formID">
-            <div class="input_right">
-                <input type="text" name="subject" id="subject" placeholder="What subject is this for?" autocomplete="off" required>
-                <input type="text" name="subcat" id="subcat" placeholder="What is the subcategory?" autocomplete="off">
+            <div class="main-flex-container">
+                <div class="inputcontainer">
+                    <input type="text" name="subject" id="subject" placeholder="What subject is this for?" autocomplete="off" required>
+                    <input type="text" name="subcat" id="subcat" placeholder="What is the subcategory?" autocomplete="off">
+                </div>
+                <div class="inputcontainer">
+                    <input type="text" name="question" id="question" placeholder="What is your question?" autocomplete="off" required>
+                    <input type="text" name="note" id="note" placeholder="Any other notes/background..." autocomplete="off">
+                </div>
             </div>
-            <div class="input_left">
-                <input type="text" name="question" id="question" placeholder="What is your question?" autocomplete="off" required>
-                <input type="text" name="note" id="note" placeholder="Any other notes/background..." autocomplete="off">
-            </div>
-        </div>
-            <div class="submit_button">
-        <input type="submit" value="Add Question">
-            </div>
+            <input id="mainsubmit" type="submit" value="Add Question" class="btn">
     </form>
 </div>
 {% endblock %}
