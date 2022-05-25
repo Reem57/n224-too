@@ -1,20 +1,18 @@
 # import "packages" from flask
-from flask import Flask, render_template
-import requests
-from userNotes import userNotes
-from questions import questions
-from answers import answers
-# create a Flask instance
-app = Flask(__name__)
+from flask import render_template
+from __init__ import app
+from cruddy.app_crud import app_crud
+from cruddy.app_crud_api import app_crud_api
+from cruddy.app_notes import app_notes
 
-app.register_blueprint(userNotes)
-app.register_blueprint(questions)
-app.register_blueprint(answers)
+app.register_blueprint(app_crud)
+app.register_blueprint(app_crud_api)
+app.register_blueprint(app_notes)
+
 # connects default URL to render index.html
 @app.route('/')
 def index():
     return render_template("index.html")
-
 
 @app.route('/stub/')
 def stub():
@@ -45,6 +43,7 @@ def spell_checker():
 def calendar():
     return render_template("calendar_stuff/calendar.html")
 
+
 # runs the application on the development server
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',debug=True)
+    app.run(debug=True)
