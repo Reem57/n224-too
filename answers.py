@@ -1,6 +1,7 @@
 from flask import Flask, render_template,Blueprint,request
 import sqlite3
 import json
+from flask_login import current_user
 import requests
 # Table ANSWERS with ID, QID, AUTHOR, ANSWERTEXT
 answers = Blueprint("answers",__name__)
@@ -10,7 +11,7 @@ def addanswer():
     if request.form:
         conn = sqlite3.connect("model/data.db")
         qid= int(request.form.get("QID"))
-        author = request.form.get("AUTHOR")
+        author = current_user.name
         answertext=request.form.get("ANSWERTEXT")
         conn.execute(f"INSERT INTO ANSWERS (QID,AUTHOR,ANSWERTEXT) VALUES ({qid},'{author}','{answertext}')")
         conn.commit()

@@ -1,13 +1,17 @@
 from flask import Flask, render_template,Blueprint,request
 import sqlite3
 import json
+from flask_login import current_user
 import requests
 questions = Blueprint("questions",__name__)
-# Table has keys ID, SUBJECT, SUBCAT, QUESTION,NOTES
+# Table has keys ID, SUBJECT, SUBCAT, QUESTION,NOTES,USERNAME
 # conn = sqlite3.connect("model/data.db")
-# cursor = conn.execute("SELECT * from QUESTIONS")
-# for row in cursor:
-#     print(row)
+# conn.execute("ALTER TABLE QUESTIONS RENAME COLUMN COLNew TO USERNAME")
+# conn.commit()
+# print("renamed")
+# # cursor = conn.execute("SELECT * from QUESTIONS")
+# # for row in cursor:
+# #     print(row)
 # conn.close()
 @questions.route("/questions/",methods=["GET","POST"])
 def question():
@@ -20,17 +24,19 @@ def question():
             question = request.form.get("question")
             note = request.form.get("note")
             subcat = request.form.get("subcat")
+            user  = current_user.name
+            print(user)
             if len(note) ==0 and len(subcat) == 0:
-                conn.execute(f"INSERT INTO QUESTIONS (SUBJECT,QUESTION) VALUES ('{subject}','{question}')")
+                conn.execute(f"INSERT INTO QUESTIONS (SUBJECT,QUESTION,USERNAME) VALUES ('{subject}','{question}','{user}')")
                 conn.commit()
             elif len(note) == 0:
-                conn.execute(f"INSERT INTO QUESTIONS (SUBJECT,SUBCAT.QUESTION) VALUES ('{subject}','{subcat}','{question}')")
+                conn.execute(f"INSERT INTO QUESTIONS (SUBJECT,SUBCAT.QUESTION,USERNAME) VALUES ('{subject}','{subcat}','{question}','{user}')")
                 conn.commit()
             elif len(subcat) == 0:
-                conn.execute(f"INSERT INTO QUESTIONS (SUBJECT,QUESTION,NOTES) VALUES ('{subject}','{question}','{note}')")
+                conn.execute(f"INSERT INTO QUESTIONS (SUBJECT,QUESTION,NOTES,USERNAME) VALUES ('{subject}','{question}','{note}','{user}')")
                 conn.commit()
             else:
-                conn.execute(f"INSERT INTO QUESTIONS (SUBJECT,SUBCAT,QUESTION,NOTES) VALUES ('{subject}','{subcat}','{question}','{note}')")
+                conn.execute(f"INSERT INTO QUESTIONS (SUBJECT,SUBCAT,QUESTION,NOTES,USERNAME) VALUES ('{subject}','{subcat}','{question}','{note}','{user}')")
                 conn.commit()
             conn.close()
         if id=="search":
