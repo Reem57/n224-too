@@ -10,6 +10,9 @@ This HTML is setup as a fragment allowing it to be "included" by other HTML file
 html, body{
     font-family: "Comic Sans MS";
 }
+.topnav-right{
+    float: right;
+}
 </style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href={{ url_for('index') }}>{{basename}}</a>
@@ -56,15 +59,6 @@ html, body{
                 <a class="nav-link" href="/questions">Forum Page</a>
                 {% endif %}
 
-
-
-                            {% if current_user.is_authenticated %}
-                            <a class="nav-link" href={{ url_for('crud.crud_logout') }}>Logout</a>
-                            {% else %}
-
-                            <a class="nav-link" href={{ url_for('crud.crud_login') }}>Login</a>
-                            {% endif %}
-
                             <div id="google_translate_element"></div>
                             <script type="text/javascript">
                                 function googleTranslateElementInit() {
@@ -74,6 +68,17 @@ html, body{
                                 );
                              }
                     </script>
+
+                {% if current_user.is_authenticated %}
+                    <div class = "topnav-right">
+                        <a class="nav-link" href={{ url_for('crud.crud_logout') }}>Logout</a>
+                    </div>
+                {% else %}
+                    <div class = "topnav-right">
+                        <a class="nav-link" href={{ url_for('crud.crud_login') }}>Login</a>
+                    </div>
+                {% endif %}
+
                 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                     </div>
                     </div>
