@@ -1,7 +1,7 @@
 from flask import Flask, render_template,Blueprint,request
 import sqlite3
 import json
-from flask_login import current_user
+from flask_login import current_user, login_required
 import requests
 questions = Blueprint("questions",__name__)
 # Table has keys ID, SUBJECT, SUBCAT, QUESTION,NOTES,USERNAME
@@ -14,6 +14,7 @@ questions = Blueprint("questions",__name__)
 # #     print(row)
 # conn.close()
 @questions.route("/questions/",methods=["GET","POST"])
+@login_required
 def question():
     response = requests.get("http://127.0.0.1:5000/getQuestions/")
     if request.form:
@@ -50,6 +51,7 @@ def question():
             conn.commit()
     return render_template("questions.html",questions=response.json())
 @questions.route("/question/<int:questionID>")
+@login_required
 def questionPage(questionID):
     response = requests.get(f'http://127.0.0.1:5000/getQuestions?id={questionID}')
     response2 = requests.get(f'http://127.0.0.1:5000/getAnswers?id={questionID}')
@@ -71,6 +73,7 @@ def getQuestions():
         cursor2 = conn.execute(f"SELECT * FROM QUESTIONS WHERE SUBCAT LIKE '%{term}%'")
         cursor3 = conn.execute(f"SELECT * FROM QUESTIONS WHERE QUESTION LIKE '%{term}%'")
         cursor4 = conn.execute(f"SELECT * FROM QUESTIONS WHERE NOTES LIKE '%{term}%'")
+        cursor5 = conn.execute(f"SELECT * FROM QUESTIONS WHERE USERNAME LIKE '%{term}%'")
         for row in cursor1:
             data[row[0]] = list(row[1:])
         for row in cursor2:
@@ -78,6 +81,8 @@ def getQuestions():
         for row in cursor3:
             data[row[0]] = list(row[1:])
         for row in cursor4:
+            data[row[0]] = list(row[1:])
+        for row in cursor5:
             data[row[0]] = list(row[1:])
     else:
         cursor = conn.execute("SELECT * FROM QUESTIONS")

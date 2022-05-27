@@ -101,6 +101,7 @@
         <p>{{questions[x][1]}}</p>
         <p>{{questions[x][2]}}</p>
         <p>{{questions[x][3]}}</p>
+        <p>{{questions[x][4]}}</p>
         <p><a href="{{ '/question/%s'%x|urlencode }}">See answers</a></p>
         <form action="/addanswer/" method="POST">
             <input type="hidden" value={{x}} name="QID" id="QID">
@@ -108,11 +109,13 @@
             <input type="text" name="ANSWERTEXT" id="ANSWERTEXT" placeholder="Type your answer here..." required autocomplete="off">
             <input type="submit" class="btn">
         </form>
-        <form action="/questions/" id='delete' method="POST">
-            <input type="hidden" value="delete" name="formID">
-            <input type="hidden" id="questionid" name="questionid" value={{x}}>
-            <input type="submit" value="Delete Question" class="btn">
-        </form>
+        {% if current_user.name ==  questions[x][4] %}
+            <form action="/questions/" id='delete' method="POST">
+                <input type="hidden" value="delete" name="formID">
+                <input type="hidden" id="questionid" name="questionid" value={{x}}>
+                <input type="submit" value="Delete Question" class="btn">
+            </form>
+        {% endif %}
         </div>
 {% endfor %}
 <div id="add" class="container">
