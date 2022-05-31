@@ -10,8 +10,9 @@ This HTML is setup as a fragment allowing it to be "included" by other HTML file
 html, body{
     font-family: "Comic Sans MS";
 }
-.topnav-right{
+.nav-link{
     float: right;
+    margin-right: 1px;
 }
 </style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -70,13 +71,9 @@ html, body{
                     </script>
 
                 {% if current_user.is_authenticated %}
-                    <div class = "topnav-right">
-                        <a class="nav-link" href={{ url_for('crud.crud_logout') }}>Logout</a>
-                    </div>
+                    <a class="nav-link" style="float: right" href={{ url_for('crud.crud_logout') }}>Logout</a>
                 {% else %}
-                    <div class = "topnav-right">
-                        <a class="nav-link" href={{ url_for('crud.crud_login') }}>Login</a>
-                    </div>
+                    <a class="nav-link" href={{ url_for('crud.crud_login') }}>Login</a>
                 {% endif %}
 
                 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
