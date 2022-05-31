@@ -7,6 +7,7 @@ from cruddy.app_notes import app_notes
 from userNotes import userNotes
 from questions import questions
 from answers import answers
+from my_calendar import my_cal
 
 
 app.register_blueprint(userNotes)
@@ -15,6 +16,7 @@ app.register_blueprint(answers)
 app.register_blueprint(app_crud)
 app.register_blueprint(app_crud_api)
 app.register_blueprint(app_notes)
+app.register_blueprint(my_cal)
 
 # connects default URL to render index.html
 @app.route('/')
@@ -45,11 +47,6 @@ def pixel_art():
 @app.route('/spell_checker/')
 def spell_checker():
     return render_template("spell_checker.html")
-
-@app.route('/calendar/')
-def calendar():
-    return render_template("calendar_stuff/calendar.html")
-
 
 # runs the application on the development server
 if __name__ == "__main__":
