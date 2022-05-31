@@ -48,6 +48,10 @@ def pixel_art():
 def spell_checker():
     return render_template("spell_checker.html")
 
+@app.route('/flashcards/')
+def flashcards():
+    return render_template("flashcards.html")
+
 # runs the application on the development server
 if __name__ == "__main__":
     app.run(debug=True)

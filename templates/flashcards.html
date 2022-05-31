@@ -1,0 +1,328 @@
+{% include "layouts/navbar.html" %}
+{% block body %}
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<h2><span style = "position: relative; top:20px; left: 350px; text-align: center;">Flash Cards</span></h2>
+<p id="front">
+    {#back of front#}
+</p><br>
+<hr><br>
+<div id="back">
+    {#back of flashcard#}
+</div><br>
+<div id ="activeCardButtons">
+    <button id="prev" onclick="prevCard()">
+    </button>
+    <button id="flip" type="button" value="Flip" onclick="flash()">
+        Flip</button>
+    <button id="next" onclick="nextCard()">
+    </button>
+</div>
+<br>
+<br>
+<br>
+<div id="formContainer" style = "position: relative; top: -24px;">
+    <form id="cardForm">
+        <input id="newTerm" type="text" placeholder="Add your own term" onKeyDown="if(event.keyCode==13) document.getElementById('newDef').focus()">
+        <input id="newDef" type="text" placeholder="Give a definition" onKeyDown="if(event.keyCode==13) cardAdd()">
+        <br>
+        <input id="submit" type="button" value="Add it to the deck" onClick="cardAdd()">
+        <br>
+        <input id="clearDeck" type="button" value="Clear the deck" onClick="emptyDeck()">
+    </form>
+    <br>
+</div>
+</body>
+
+<style>
+    body{
+        background-color: cornsilk;
+    }
+
+    html{
+        min-width:100%;
+        max-width:900px;
+        overflow-x:hidden;
+    }
+    h4{
+        text-align: center;
+        position: relative;
+        padding-right: 5em;
+        margin-right: 180px;
+    }
+    body{
+        min-width:100%;
+        max-width:900px;
+        width:100%;
+        height:100%;
+    {#overflow:screen;#}
+    }
+    h2{
+        color: #484848;
+        font-size: 140px;
+        font-weight: bold;
+        letter-spacing: 7px;
+        cursor: pointer
+    }
+    h2 span{
+        transition: .5s linear
+    }
+    h2:hover span:nth-child(1){
+        margin-right: 5px
+    }
+    h2:hover span:nth-child(1):after{
+        content: "";
+    }
+    h2:hover span:nth-child(2){
+        margin-left: 30px
+    }
+    h2:hover span{
+        color: #772e2e;
+        text-shadow: 0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 40px #fff;
+    }
+
+    p {
+        text-align: center;
+    }
+    #front, #back {
+        min-width:100%;
+        max-width:900px;
+        text-align: center;
+    }
+    #activeCardButtons {
+        min-width: 100%;
+        max-width: 900px;
+        margin-left:auto;
+        margin-right:auto;
+
+    }
+    #prev {
+        position:absolute;
+        left:4%;
+        border-top: 25px solid transparent;
+        border-right: 50px solid darkblue;
+        border-bottom: 25px solid transparent;
+    }
+
+    #flip {
+        position:absolute;
+        width: 50px;
+        left:48%;
+        display:block;
+        height: 30px;
+        border-radius: 25px;
+
+
+
+    }
+    #next {
+        position:absolute;
+        right: 4%;
+        width: 0;
+        height: 0;
+        border-top: 25px solid transparent;
+        border-left: 50px solid darkblue;
+        border-bottom: 25px solid transparent;
+    }
+    #submit {
+        position:relative;
+        top: -20px;
+        right: -90px;
+        width:180px;
+        margin-top:10px;
+        margin-bottom:10px;
+        display:block;
+        height: 30px;
+        border-radius: 25px;
+
+    }
+    #cardForm {
+        position:absolute;
+        width: 100%;
+        margin-left:50%;
+        margin-top:10px;
+
+    }
+    #front, #back{
+        display:block;
+    }
+
+
+    #clearDeck{
+        position:relative;
+        top: 100px;
+        height: 30px;
+        width:360px;
+        margin-left:-90px;
+        display: block;
+        border-radius: 25px;
+
+    }
+    #clearDeck:hover{
+        color:red;
+        border: 3px solid red;
+
+    }
+    #formContainer{
+        display:block;
+        position:relative;
+        margin-left:-90px;
+        width:100%;
+    }
+    #newTerm{
+        position:relative;
+        top: 70px;
+        right: 100px;
+        width:180px;
+        margin-top:10px;
+        display:block;
+        display:block;
+        height: 30px;
+        border-radius: 25px;
+
+    }
+    #newDef{
+        position:relative;
+        right: 100px;
+        top: 68px;
+        width:180px;
+        margin-top:10px;
+        display:block;
+        height: 30px;
+        border-radius: 25px;
+
+    }
+    hr {
+        margin-left:-8px;
+    }
+    a.activator {
+        cursor:pointer;
+        position: absolute;
+        bottom:10px;
+    }
+</style>
+
+<script>
+    function Card(term, definition, category) {
+        this.term = term;
+        this.definition = definition;
+        //this.category = category;
+    }
+    var newDeck = [];
+    var newCard;
+    var front = document.getElementById("front");
+    var back = document.getElementById("back");
+    var flip = document.getElementById("flip");
+    var submit = document.getElementById("submit");
+    var clearDeck = document.getElementById("clearDeck");
+    var formFront, formBack;
+
+    var card1 = new Card(
+        "Term",
+        "Definition",
+        "General"
+    );
+    var card2 = new Card(
+        "Anachronism",
+        "a thing belonging or appropriate to a period other than that in which it exists, especially a thing that is conspicuously old-fashioned.",
+        "Vocab"
+    );
+    var card3 = new Card(
+        "Atoms in a Mole",
+        "6.022 * 10^23",
+        "Science"
+    );
+
+    var myCards = [card1, card2, card3];
+    var cardIndex = 0;
+
+    front.innerHTML = card1.term;
+    back.innerHTML = card1.definition;
+    back.style.visibility = "hidden";
+
+    function flash() {
+        if (front.style.visibility != "hidden") {
+            front.style.visibility = "hidden";
+            back.style.visibility = "visible";
+        } else {
+            front.style.visibility = "visible";
+            back.style.visibility = "hidden";
+        }
+    }
+
+    function cardAdd(formFront, formBack) {
+        function clearForm() {
+            document.getElementById("newTerm").value = "";
+            document.getElementById("newDef").value = "";
+            document.getElementById("cardForm").reset();
+        }
+
+        function updatePlaceholder() {
+            document.getElementById("newTerm").placeholder =
+                "...another term?";
+            document.getElementById("newDef").placeholder =
+                "...and another definition?";
+        }
+
+        formFront = document.getElementById("newTerm");
+        formBack = document.getElementById("newDef");
+        if (
+            formFront.value !== formBack.value &&
+            formFront.value != "" &&
+            formBack.value != ""
+        ) {
+            var newCard = new Card();
+            newCard.term = formFront.value;
+            newCard.definition = formBack.value;
+            myCards.push(newCard);
+            cardIndex = myCards.length - 1;
+            clearForm();
+            updatePlaceholder();
+            front.innerHTML = myCards[cardIndex].term;
+            back.innerHTML = myCards[cardIndex].definition;
+            // back.style.visibility = "hidden";
+        } else if (formFront.value == formBack.value) {
+            alert('Nothing added');
+        } else if (
+            (formFront.value == null || formFront.value == "", formBack.value == null ||
+            formBack.value == "", formFront.value == null ||
+            formBack.value == null ||
+            formFront.value == "" ||
+            formBack.value == "")
+        ) {
+            alert("Fill out both sides of the card");
+        }
+        document.getElementById("newTerm").focus();
+    }
+
+    function nextCard() {
+        cardIndex = (cardIndex + 1) % myCards.length;
+        front.innerHTML = myCards[cardIndex].term;
+        back.innerHTML = myCards[cardIndex].definition;
+    }
+    function prevCard() {
+        if (cardIndex > 0)
+            cardIndex = (cardIndex - 1);
+        else if (cardIndex == 0) cardIndex = myCards.length-1;
+        front.innerHTML = myCards[cardIndex].term;
+        back.innerHTML = myCards[cardIndex].definition;
+
+    }
+    function emptyDeck() {
+        var confirmation = confirm("Are you sure you want to delete this entire deck?");
+        if (confirmation) {
+            myCards.splice(0, myCards.length);
+            cardIndex = 0;
+            front.innerHTML = "&nbsp;";
+            back.innerHTML = "&nbsp;";
+        }
+        document.getElementById("newTerm").focus();
+    }
+
+</script>
+{% endblock %}
