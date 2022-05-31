@@ -1,11 +1,11 @@
-{% include "layouts/navbar.html" %}
+{% extends "layouts/base.html" %}
 {% block body %}
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<h2><span style = "position: relative; top:20px; left: 350px; text-align: center;">Flash Cards</span></h2>
+<h2><span style = "position: relative; top:20px; left: 250px; text-align: center;">Flash Cards</span></h2>
 <p id="front">
     {#back of front#}
 </p><br>
@@ -235,7 +235,7 @@
     var card3 = new Card(
         "Atoms in a Mole",
         "6.022 * 10^23",
-        "Science"
+        "Chemistry"
     );
 
     var myCards = [card1, card2, card3];
