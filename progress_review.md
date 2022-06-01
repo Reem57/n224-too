@@ -10,6 +10,9 @@
 
 ## Time Box
 
+### Finals Advertisment
+- [Video](https://drive.google.com/file/d/1OOrFr5lUsRDAWE2h3nuzf5cDaQ3CO7GP/view)
+
 ### Finals Week 1
 - Scrum Master Review: [ticket](https://github.com/Reem57/n224-too/issues/25)
 - Individual Review: [Nicolas ticket](https://github.com/Reem57/n224-too/issues/29), [Reem ticket](https://github.com/Reem57/n224-too/issues/28), [Isabelle ticket](https://github.com/Reem57/n224-too/issues/27), [Sanjay ticket](https://github.com/Reem57/n224-too/issues/26)
